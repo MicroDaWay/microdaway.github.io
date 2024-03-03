@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[8040],{939:e=>{e.exports=JSON.parse('{"title":"Vue3Alpha","slug":"/category/vue3alpha","permalink":"/docs/category/vue3alpha","navigation":{"previous":{"title":"Vue2","permalink":"/docs/Vue2"},"next":{"title":"\u7b80\u4ecb","permalink":"/docs/Vue3Alpha/Introduction"}}}')}}]);

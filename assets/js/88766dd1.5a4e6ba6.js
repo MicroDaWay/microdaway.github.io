@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[547],{8300:e=>{e.exports=JSON.parse('{"title":"Rest+Ajax","slug":"/category/restajax","permalink":"/docs/category/restajax","navigation":{"previous":{"title":"express05","permalink":"/docs/Node.js/Express05"},"next":{"title":"Rest","permalink":"/docs/Rest+Ajax/Rest"}}}')}}]);

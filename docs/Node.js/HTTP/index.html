@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Node.js/HTTP" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.1">
+<title data-rh="true">HTTP 协议 | MicroDaWay</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://microdaway.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://microdaway.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://microdaway.github.io/docs/Node.js/HTTP"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="HTTP 协议 | MicroDaWay"><meta data-rh="true" name="description" content="- 网络基础"><meta data-rh="true" property="og:description" content="- 网络基础"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://microdaway.github.io/docs/Node.js/HTTP"><link data-rh="true" rel="alternate" href="https://microdaway.github.io/docs/Node.js/HTTP" hreflang="zh"><link data-rh="true" rel="alternate" href="https://microdaway.github.io/docs/Node.js/HTTP" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="MicroDaWay RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="MicroDaWay Atom Feed"><link rel="stylesheet" href="/assets/css/styles.8ab61aad.css">
+<script src="/assets/js/runtime~main.21dd0852.js" defer="defer"></script>
+<script src="/assets/js/main.dae084d8.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/avatar.jpg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/avatar.jpg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">MicroDaWay</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/Introduction">笔记</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="切换浅色/暗黑模式（当前为浅色模式）" aria-label="切换浅色/暗黑模式（当前为浅色模式）" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/Introduction">介绍</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/HTML+CSS">HTML+CSS</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/docs/category/javascript">JavaScript</a><button aria-label="展开侧边栏分类 &#x27;JavaScript&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" aria-expanded="true" href="/docs/category/nodejs">Node.js</a><button aria-label="折叠侧边栏分类 &#x27;Node.js&#x27;" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Node.js/Introduction">Node.js 简介</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Node.js/Module">模块化</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Node.js/CoreModule">核心模块</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Node.js/PackageManager">包管理器</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/Node.js/HTTP">HTTP 协议</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Node.js/Express01">express01</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Node.js/Express02">express02</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Node.js/Express03">express03</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Node.js/Express04">express04</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Node.js/Express05">express05</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/docs/category/restajax">Rest+Ajax</a><button aria-label="展开侧边栏分类 &#x27;Rest+Ajax&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/Git">Git</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/Build">构建工具</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/docs/category/typescript">TypeScript</a><button aria-label="展开侧边栏分类 &#x27;TypeScript&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/Vue2">Vue2</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/docs/category/vue3alpha">Vue3Alpha</a><button aria-label="展开侧边栏分类 &#x27;Vue3Alpha&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/Vue3">Vue3</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/React">React</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/WeChatMiniProgram">微信小程序</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/Configuration">配置</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/docs/category/nodejs"><span itemprop="name">Node.js</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">HTTP 协议</span><meta itemprop="position" content="2"></li></ul></nav><div class="theme-doc-markdown markdown"><h1>HTTP 协议</h1>
+<ul>
+<li>
+<p>网络基础</p>
+</li>
+<li>
+<p>网络的服务器是基于请求和响应的</p>
+<ul>
+<li>https:// 协议名 http ftp ...</li>
+<li>lilichao.com 域名 domain<!-- -->
+<ul>
+<li>整个网络中存在着无数个服务器，每一个服务器都有它自己的唯一标识</li>
+<li>这个标识被称为 ip 地址 192.168.1.17，但是 ip 地址不方便记忆</li>
+<li>域名就相当于是 ip 地址的别名</li>
+</ul>
+</li>
+<li>/hello/index.html<!-- -->
+<ul>
+<li>网站资源路径</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>当在浏览器中输入地址以后发生了什么？</p>
+<ul>
+<li><a href="https://lilichao.com/hello/index.html" target="_blank" rel="noopener noreferrer">https://lilichao.com/hello/index.html</a></li>
+<li>DNS 解析，获取网站的 ip 地址</li>
+<li>浏览器需要和服务器建立连接(tcp/ip)(三次握手)</li>
+<li>浏览器向服务器发送请求(http 协议)</li>
+<li>服务器处理请求，并返回响应(http 协议)</li>
+<li>浏览器将响应的页面渲染</li>
+<li>浏览器断开和服务器的连接(四次挥手)</li>
+</ul>
+</li>
+<li>
+<p>客户端如何和服务器建立(断开)连接</p>
+<ul>
+<li>通过三次握手和四次挥手<!-- -->
+<ul>
+<li>三次握手(建立连接)<!-- -->
+<ul>
+<li>三次握手是客户端和服务器建立连接的过程</li>
+<li>客户端向服务器发送连接请求 SYN</li>
+<li>服务器收到连接请求，向客户端返回消息 SYN ACK</li>
+<li>客户端向服务器发送同意连接的信息 ACK</li>
+</ul>
+</li>
+<li>四次挥手(断开连接)<!-- -->
+<ul>
+<li>客户端向服务器发送请求，通知服务器数据发送完毕，请求断开连接 FIN</li>
+<li>服务器向客户端返回数据，知道了 ACK</li>
+<li>服务器向客户端返回数据，收完了，可以断开连接 FIN ACK</li>
+<li>客户端向服务器发数据，可以断开了 ACK</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>请求和响应实际上就是一段数据，只是这段数据需要遵循一个特殊的格式，这个特殊的格式由 HTTP 协议来规定</p>
+</li>
+<li>
+<p>TCP/IP 协议族(了解)</p>
+<ul>
+<li>
+<p>TCP/IP 协议族中包含了一组协议</p>
+<ul>
+<li>这组协议规定了互联网中所有的通信的细节</li>
+</ul>
+</li>
+<li>
+<p>网络通信的过程由四层组成</p>
+<ul>
+<li>应用层<!-- -->
+<ul>
+<li>软件的层面，浏览器 服务器都属于应用层</li>
+</ul>
+</li>
+<li>传输层<!-- -->
+<ul>
+<li>负责对数据进行拆分，把大数据 拆分为一个一个小数据包</li>
+</ul>
+</li>
+<li>网络层<!-- -->
+<ul>
+<li>负责给数据包，添加信息</li>
+</ul>
+</li>
+<li>数据链路层<!-- -->
+<ul>
+<li>传输信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>HTTP 协议就是应用层的协议，用来规定客户端和服务器间通信的报文格式的</p>
+</li>
+<li>
+<p>报文(message)</p>
+<ul>
+<li>
+<p>浏览器和服务器之间通信是基于请求和响应的</p>
+<ul>
+<li>浏览器向服务器发送请求(request)</li>
+<li>服务器向浏览器返回响应(response)</li>
+<li>浏览器向服务器发送请求相当于浏览器给服务器写信</li>
+<li>服务器向浏览器返回响应，相当于服务器给浏览器回信</li>
+<li>这个信在 HTTP 协议中就被称为报文</li>
+<li>而 HTTP 协议就是对这个报文的格式进行规定</li>
+</ul>
+</li>
+<li>
+<p>服务器</p>
+<ul>
+<li>一个服务器的主要功能：<!-- -->
+<ul>
+<li>可以接收到浏览器发送的请求报文</li>
+<li>可以向浏览器返回响应报文</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>请求报文(request)</p>
+<ul>
+<li>
+<p>客户端发送给服务器的报文称为请求报文</p>
+</li>
+<li>
+<p>请求报文的格式如下：</p>
+<ul>
+<li>
+<p>请求首行</p>
+<ul>
+<li>
+<p>请求首行就是请求报文的第一行</p>
+</li>
+<li>
+<p>GET /index.html?username=sunwukong HTTP/1.1</p>
+</li>
+<li>
+<p>第一部分 get 表示请求的方式，get 表示发送的是 get 请求</p>
+</li>
+<li>
+<p>现在常用的方式就是 get 和 post 请求</p>
+</li>
+<li>
+<p>get 请求主要用来向服务器请求资源</p>
+</li>
+<li>
+<p>post 请求主要用来向服务器发送数据</p>
+</li>
+<li>
+<p>第二部分 /index.html?username=sunwukong</p>
+</li>
+<li>
+<p>表示请求资源的路径</p>
+</li>
+<li>
+<p>? 后边的内容叫做查询字符串</p>
+</li>
+<li>
+<p>查询字符串是一个名值对结构，一个名字对应一个值</p>
+</li>
+<li>
+<p>使用=连接，多个名值对之间使用&amp;分割</p>
+</li>
+<li>
+<p>username=admin&amp;password=123123</p>
+</li>
+<li>
+<p>get 请求通  过查询字符串将数据发送给服务器</p>
+</li>
+<li>
+<p>get 请求没有请求体</p>
+</li>
+<li>
+<p>由于查询字符串会在浏览器地址栏中直接显示</p>
+</li>
+<li>
+<p>请求头也是名值对结构，用来告诉服务器我们浏览器的信息所以，它安全性较差</p>
+</li>
+<li>
+<p>同时，由于 url 地址长度有限制，所以 get 请求无法发送较大的数据</p>
+</li>
+<li>
+<p>post 请求通过请求体来发送数据</p>
+</li>
+<li>
+<p>在 chrome 中通过 载荷 可以查看</p>
+</li>
+<li>
+<p>post 请求通过请求体发送数据，无法在地址栏直接查看</p>
+</li>
+<li>
+<p>所以安全性较好</p>
+</li>
+<li>
+<p>请求体的大小没有限制，可以发送任意大小的数据</p>
+</li>
+<li>
+<p>如果你需要向服务器发送数据，能用 post 尽量使用 post</p>
+</li>
+<li>
+<p>第三部分</p>
+<ul>
+<li>HTTP/1.1 协议的版本</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>请求头</p>
+<ul>
+<li>请求头也是名值对结构，用来告诉服务器我们浏览器的信息</li>
+<li>每一个请求头都有它的作用：<!-- -->
+<ul>
+<li>Accept 浏览器可以接受的文件类型</li>
+<li>Accept-Encoding 浏览器允许的压缩的编码</li>
+<li>User-Agent 用户代理，它是一段用来描述浏览器信息的字符串</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>空行</p>
+<ul>
+<li>用来分隔请求头和请求体</li>
+</ul>
+</li>
+<li>
+<p>请求体</p>
+<ul>
+<li>post 请求通过请求体来发送数据</li>
+<li>网页、css、 js、图片这些资源会作为响应报文中的请求体发送</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>响应报文：</p>
+<ul>
+<li>响应首行<!-- -->
+<ul>
+<li>HTTP/1.1 200 OK</li>
+<li>200 响应状态码</li>
+<li>ok 对响应状态码的描述</li>
+<li>响应状态码的规则<!-- -->
+<ul>
+<li>1xx 请求处理中</li>
+<li>2xx 表示成功</li>
+<li>3xx 表示请求的重定向</li>
+<li>4xx 表示客户端错误</li>
+<li>5xx 表示服务器的错误</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>响应头<!-- -->
+<ul>
+<li>响应头也是一个一个的名值对结构，用来告诉浏览器响应的信息</li>
+<li>Content-Type 用来描述响应体的类型</li>
+<li>Content-Length 用来描述响应体大小</li>
+</ul>
+</li>
+<li>空行<!-- -->
+<ul>
+<li>空行用来分隔响应头和响应体</li>
+</ul>
+</li>
+<li>响应体<!-- -->
+<ul>
+<li>响应体就是服务器返回给客户端的内容</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Node.js/PackageManager"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">包管理器</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Node.js/Express01"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">express01</div></a></nav></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 MicroDaWay</div></div></div></footer></div>
+</body>
+</html>
